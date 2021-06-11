@@ -1,0 +1,297 @@
+// DOCUMENTACION PARCIAL FINAL
+
+// STUDENTS - METODOS
+
+// METODO  getStudent (LISTAR ESTUDIANTES)
+/* 	PARA LISTAR LOS ESTUDIANTES  SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/students - este proceso se hace utilizando
+	el metodo GET. */
+	RETORNARA:
+	// FORMATO JSON
+	{
+	 "message": "Estudiantes registrados:",
+	 "students":[
+	  {
+		"email":"carlos23fb@gmail.com",
+		"id":213,
+		"iden":"1234",
+		"name":"carlos",
+		"phone":"322312",
+		"semester":2,
+		"surname":"benavides"		
+	  },
+	  {
+		"email":"prueba323432@gmail.com",
+		"id":214,
+		"iden":"1235",
+		"name":"prueba02",
+		"phone":"324324",
+		"semester":1,
+		"surname":"prueba02"		
+	  },
+	 ]
+	}
+
+
+
+// METODO putStudent (EDITAR ESTUDIANTES)
+
+/* 	PARA EDITAR LOS ESTUDIANTES SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/students/<id_student>   - este proceso se hace utilizando
+	el metodo PUT. En este caso le pasamos como parametro el id del estudiante
+	al cual vamos editar la información, enviamos los datos nuevos y aquellos campos
+	que no se editan o cambian, se envian vacios. */
+	ENVIAR:
+	// FORMATO JSON
+	{
+		"iden": "",
+		"name": "",
+		"surname": "Benavides",
+		"phone": "",
+		"email": "",
+		"semester": 2
+	}
+	
+	
+//  METODO postStudent (REGISTRAR ESTUDIANTES)
+
+/* 	PARA REGISTRAR LOS ESTUDIANTES SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/students - este proceso se hace utilizando
+	el metodo POST. En este caso no le pasamos parametro por lo que enviamos los
+	correspondientes datos. Enviamos los datos correspondientes para hacer el registro.
+	
+	ENVIAR:
+	// FORMATO JSON
+	{
+		"iden": "34",
+		"name": "Carlos",
+		"surname": "Benavides",
+		"phone": "231312",
+		"email": "carlos27fb@gmail",
+		"semester": 2
+	}
+	
+	
+// METODO deleteStudents (ELIMINAR ESTUDIANTES)
+
+/*	PARA ELIMINAR LOS ESTUDIANTES SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/students/<id_student>  - en este proceso le pasamos como 
+	parametro el id del estudiante al cual deseamos eliminar, teniendo como resultado
+	un mensaje que confirme que el estudiante se elimino correctamente:
+	RETORNARA:
+	// FORMATO JSON
+	{
+		"message": "Eliminado correctamente"
+	}
+	
+	
+	
+	
+// SUBJECTS - METODOS
+
+// METODO subjects (LISTAR MATERIAS REGISTRADAS)
+
+/*	PARA LISTAR LAS MATERIAS SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subjects - este proceso se hace utilizando el metodo
+	GET. */
+	RETORNARA:
+	// FORMATO JSON
+	{
+	 "message": "Materias registradas:",
+	 "subjects":[
+	  {
+		"id":2,
+		"name":"Base de datos 1",
+		"semester":2,	
+	  },
+	  {
+		"id":3,
+		"name":"REDES",
+		"semester":1,			
+	  },
+	 ]
+	}
+	
+
+// METODO postSubject  (RESGISTRAR MATERIAS)
+
+/* 	PARA REGISTRAR LAS MATERIAS SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subjects - este proceso se hace utilizando el metodo
+	POST. Enviamos los datos correspondientes para hacer el registro.
+	
+	ENVIAR:
+	// FORMATO JSON
+	{
+		"name": "Calculo",
+		"semester":2
+	}
+	
+
+// METODO postStudentSubject (REGISTRAR ESTUDIANTES A MATERIAS EN ESPECIFICO)
+
+/* 	PARA REGISTRAR LOS ESTUDIANTES A DETERMINADAS MATERIAS SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subjects/<id_subjects>/students - este proceso se hace utilizando
+	el metodo POST. Le pasamos como parametro el id de la materia y se le envia la identificacion del estudiante. NOTA: El estudiante que pasemos, tiene que corresponder a un estudiante debidamente registrado con anterioridad para evitar inconvenientes. 
+	
+	ENVIAR:
+	// FORMATO JSON
+	{
+		"iden": 
+	}
+	
+
+
+// METODO getStudentSubject (LISTAR ESTUDIANTES DE UNA MATERIA EN ESPECIFICO)
+
+	/* PARA LISTAR LOS ESTUDIANTES DE UNA MATERIA EN ESPECIFICO SE MANEJA LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subjects/<id_subject>/students - este proceso se hace utilizando
+	el metodo GET.  Le pasamos como parametro el id de la materia  que queremos listar
+	y obtener los estudiante de dicha materia. 
+	RETORNARA:
+	// FORMATO JSON
+	{
+	 "message": "Estudiantes registrados:",
+	 "students":[
+	  {
+		"email":"carlos23fb@gmail.com",
+		"id":213,
+		"iden":"1234",
+		"name":"carlos",
+		"phone":"322312",
+		"semester":2,
+		"surname":"benavides"		
+	  }
+	 ],
+	 "subject": {
+		 "id": 2,
+		 "name":"base de datos",
+		 "semester":2
+	 }
+	}
+	
+
+// METODO deleteStudentSubject  (ELIMINAR ESTUDIANTES DE UNA MATERIA EN ESPECIFICO)
+
+/*	PARA ELIMINAR LOS ESTUDIANTES DE UNA MATERIA EN ESPECIFICO MANEJAMOS LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subject/<id_subject>/<id_student> - le pasamos dos parametros, primero
+	pasamos el id de la materia, luego pasamos el id del estuadiante que queremos eliminar.
+	RETORNARA:
+	// FORMATO JSON
+	{
+		"message:" "Estudiante eliminado correctamente"
+	}
+	
+
+
+
+// SESSIONS - METODOS
+
+// METODO registarSesion (REGISTRAR SESSION)
+
+/*	PARA REGISTRAR UNA SESSION  MANEJAMOS LA SIGUIENTE RUTA
+	http://127.0.0.1:5100/subjects/<id_subject>/sessions - este proceso se hace utilizando
+	el metodo POST. le pasamos como parametro el id de la materia a la cual queremos registrar
+	una nueva session. Enviamos los datos correspondientes a la session.
+	ENVIAR:
+	// FORMATO JSON
+	{
+		"name": "Clase 1",
+		"description":"des",
+		"date":"2021-06-18",
+		"startTime":"18:00:00",
+		"endTime":"21:30:00"
+	}
+	
+	
+
+// METODO sessiones de una materia (LISTAR SESSIONES DE UNA MATERIA EN ESPECIFICO)
+
+/*	PARA LISTAR LAS SESSIONES REGISTRADAS A UNA MATERIA EN ESPECIFICO MANEJAMOS LA SIGUIENTE
+	RUTA http://127.0.0.1:5100/subjects/<id_subject>/sessions - este proceso se hace utilizando
+	el metodo GET. Le pasamos un parametro que es el id de la materia a la que queremos listar
+	las sessiones.
+	RETORNARA:
+	// FORMATO JSON
+	
+	{
+	 "message": "Sesiones Registradas:",
+	 "sessions":[
+	  {
+		"date":"05/05/21",
+		"description":Clase2,
+		"endTime":"21:30:00",
+		"id":"2",
+		"name":"sesion 1",
+		"startTime":"18:00:00"		
+	  },
+	  {
+		"date":"04/03/21",
+		"description":Clase3,
+		"endTime":"22:00:00",
+		"id":"3",
+		"name":"sesion 2",
+		"startTime":"19:00:00"			
+	  },
+	 ],
+	 "subject":{
+		"id":6,
+		"name": "Base de datos",
+		"semester": 2
+	 }
+	}
+	
+
+// METODO asistencia (ESTUDIANTES QUE ASISTIERON A LA SESSION)
+
+/* 	PARA LISTAR LOS ESTUDIANTES QUE ASISTIERON A LA SESION MANEJAMOS LA SIGUIENTE RUTA
+	http://127.0.0.1/5100/sessions/<id_session>/students - para este proceso se hace uso
+	del metodo GET. Le pasamos como parametro el id de la sesion para obtener los estudiantes
+	que estan asignados a esta sesion. Para confirmar la asistencia le pasamos la ruta de confirmación que aparecera en el campo "attendace" de cada estudiante,
+	para verificar que el estudiante asistio enviamos dicha ruta por el metodo PUT.
+	Una ves confirmada la asistencia del estudiante el campo 'attendace' retornara: 'Asistencia confirmada' lo que significa que el estudiante si asistio y los estudiantes que no asisten el campo 'attendace' suguira retornando la ruta de verificacion.
+	RETORNARA: 
+	// FORMATO JSON	
+	{
+		"students": [
+		{//ESTE ESTUDIANTE NO ASISTIO
+			"attendace": "http://127.0.0.1/5100/sessions/<id_session>/confstudents",
+			"email": "prueba034@gmail.com",
+			"id":5,
+			"iden": "34",
+			"name": "nombre prueba",
+			"phone": "456464",
+			"semester": 2,
+			"surname" : "prueba 04"
+		},
+		{//ESTE ESTUDIANTE SI ASISTIO
+			"attendace": "Asistencia confirmada",
+			"email": "prueba034@gmail.com",
+			"id":5,
+			"iden": "34",
+			"name": "nombre prueba",
+			"phone": "456464",
+			"semester": 2,
+			"surname" : "prueba 04"
+		}
+	  ]
+	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
