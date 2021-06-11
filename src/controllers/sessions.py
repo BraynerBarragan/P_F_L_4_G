@@ -1,5 +1,5 @@
-from datetime import datetime
-from flask import Flask, render_template, request, url_for, redirect, flash
+
+from flask import request
 from flask.json import jsonify
 from src import app
 from src.models.subject import SubjectModel
@@ -10,9 +10,7 @@ subjectModel = SubjectModel()
 sessionModel = SessionModel()
 studentsModel = StudentsModel()
 objects= Objects()
-import datetime
-import time
-import json
+
 def objectSession(id, name, description, date, startTime, endTime):
     return {'id':id, 'name':name, 'description':description, 'date':date,'startTime':startTime, 'endTime':endTime}
 

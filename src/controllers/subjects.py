@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import  request, jsonify
 from src import app
 from src.models.subject import SubjectModel
 subjectModel = SubjectModel()
